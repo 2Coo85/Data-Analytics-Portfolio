@@ -13,7 +13,6 @@ header{
     border-bottom: #011205;
     box-shadow: 0px 10px 10px #9d2b0443;
     height: 150px;
-    margin-bottom: 200px;
     gap: 20px;
 }
 header img{
@@ -26,34 +25,70 @@ header h1 {
 }
 
 /* ---------------- Main content ---------------- */
+h3, section p{
+    display: flex;
+    justify-content: center;
+}
+section h4{
+    display: flex;
+    justify-content: center;
+}
+section {
+    background-color: antiquewhite;
+    border: outset, 2px, bisque;
+    margin: 10px;
+    padding: 5px 10px 10px 10px;
+}
 #projects-intro{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 1450px;
+    width: auto;
     margin: auto;
-    gap: 75px 75px;
+    gap: 25px 25px;
 }
 .projects-card{
+    display: flex;
+    flex-direction: row;
     background-color: #e9e6f0;
     color: #1E1E1E;
+    border: outset 1px burlywood;
     border-radius: 20px;
-    width: 100px;
+    width: 175px;
+    height: 75px;
+    margin-bottom: 10px;
 }
 .projects-card div {
-    padding:20px 25px;
+    padding-left: 15px;
 }
 .project-img{
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px 0 0 20px;
     transition-duration: 0.3s;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: auto;
 }
 .hover-img{
     filter: brightness(0.4);
 }
 .hover-review{
     opacity: 100%;
+}
+iframe{
+    margin: auto;
+    height: auto;
+    width: auto;
+}
+
+footer{
+    margin: 10px;
+    padding-top: 10px;
+    background-color: rgb(226, 189, 95);
+    border: beige 2px outset;
+}
+footer a, footer p {
+    display: flex;
+    justify-content: center;
 }
 
 /* ---------------- All suits ---------------- */
@@ -63,7 +98,7 @@ header h1 {
     margin: 50px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 10px;
 }
 .projects{
     background-color: #FB6376;
@@ -78,9 +113,9 @@ header h1 {
     grid-row: 1/3;
     grid-column: 3/4;
 }
-iframe{
-    height: auto;
-    width: 1000px;
+
+.projects-body{
+    background-color: aliceblue;
 }
 
 
