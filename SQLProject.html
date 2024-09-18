@@ -18,202 +18,100 @@
             <li>Performed data analysis using SQL queries to identify locations that need support for homeless youth and homeless veterans, in addition to sourcing locations that were effectively supporting their homeless population</li>
         </ul>
         <h3>Examples of queries used to answer questions</h3>
-        <p>We want to develop some new programs to help unaccompanied homeless children under 18 years old, and need some locations to start some programs. What are the top 3 Continuum of Care areas (CoC_Name in the table) with the highest number of unaccompanied homeless youth under 18 in the year 2018.
+        <section>
+            <p>We want to develop some new programs to help unaccompanied homeless children under 18 years old, and need some locations to start some programs. What are the top 3 Continuum of Care areas (CoC_Name in the table) with the highest number of unaccompanied homeless youth under 18 in the year 2018.</p>
 
-            Answer:
+            <p>Answer:
             San Jose/Santa Clara City & County CoC - 506
             Oregon Balance of State CoC - 243
-            Las Vegas/Clark County CoC- 214
+            Las Vegas/Clark County CoC- 214</p>
             
-            SQL Code Used:
-            SELECT
+            <p>SQL Code Used:</p>
+            <p>SELECT
               CoC_Name,
-              Homeless_Unaccompanied_Youth_Under_18
-            FROM `capstone-practice-434814.Exploration_Dataset.homelessness`
-            WHERE
-              Count_Year = 2018
-            ORDER BY
-              Homeless_Unaccompanied_Youth_Under_18 DESC
-            LIMIT 3
-            </p>
+              Homeless_Unaccompanied_Youth_Under_18</p>
+            <p>FROM `capstone-practice-434814.Exploration_Dataset.homelessness`</p>
+            <p>WHERE
+              Count_Year = 2018</p>
+            <p>ORDER BY
+              Homeless_Unaccompanied_Youth_Under_18 DESC</p>
+            <p>LIMIT 3</p>
+        </section>
         <br>
-        <p>2. We suspect that in Delaware (state abbreviation is “DE”), the number of unsheltered homeless people has been increasing over the past 7 years. Is this statement true? How do you know?
+        <section>
+            <p>2. We suspect that in Delaware (state abbreviation is “DE”), the number of unsheltered homeless people has been increasing over the past 7 years. Is this statement true? How do you know?</p>
 
-            Answer:
-            This statement is true due to the fact that when we queried the number of unsheltered homeless people in Delaware, we saw that, outside of 2013, the numbers were steadily increasing over time.
+            <p>Answer:
+            This statement is true due to the fact that when we queried the number of unsheltered homeless people in Delaware, we saw that, outside of 2013, the numbers were steadily increasing over time.</p>
             
-            SQL Code Used:
-            SELECT
+            <p>SQL Code Used:</p>
+            <p>SELECT
               Count_Year,
-              Unsheltered_Homeless
-            FROM
-              `capstone-practice-434814.Exploration_Dataset.homelessness`
-            WHERE
-              State = 'DE'
-            ORDER BY
-              Count_Year
-            </p>
+              Unsheltered_Homeless</p>
+            <p>FROM
+              `capstone-practice-434814.Exploration_Dataset.homelessness`</p>
+            <p>WHERE
+              State = 'DE'</p>
+            <p>ORDER BY
+              Count_Year</p>
+        </section>
         <br>
-        <p>3. The Safe Haven program was created in 1992 to provide shelter for people who are homeless and have a serious mental illness. However, funding for Safe Havens was cut in 2009, so no new Safe Havens could be created. Looking at data from only 2018, answer the following questions:
-            In 2018, how many different locations had at least 1 person as a Sheltered_SH?
+        <section>
+            <p>3. The Safe Haven program was created in 1992 to provide shelter for people who are homeless and have a serious mental illness. However, funding for Safe Havens was cut in 2009, so no new Safe Havens could be created. Looking at data from only 2018, answer the following questions:</p>
+            <p>In 2018, how many different locations had at least 1 person as a Sheltered_SH?</p>
             
-            Answer: 
-            90
+            <p>Answer: 
+            90</p>
             
-            SQL Code Used:
-            WITH sheltered_homeless_2018 AS (
-              SELECT
+            <p>SQL Code Used:</p>
+            <p>WITH sheltered_homeless_2018 AS (</p>
+            <p>SELECT
                 CoC_Name,
-                Sheltered_SH_Homeless
-              FROM `capstone-practice-434814.Exploration_Dataset.homelessness`
-              WHERE
+                Sheltered_SH_Homeless</p>
+                <p>FROM `capstone-practice-434814.Exploration_Dataset.homelessness`</p>
+                <p>WHERE
                 Sheltered_SH_Homeless >= 1
-                AND Count_Year = 2018
-            )
+                AND Count_Year = 2018</p>
+            <p>)</p>
+            <br>
             
+            <p>## number of locations with sheltered homeless</p>
+            <br>
             
-            ## number of locations with sheltered homeless
+            <p>SELECT
+              COUNT(CoC_Name) AS number_of_Shelters</p>
+            <p>FROM
+              sheltered_homeless_2018</p>
+            <br>
             
+            <p>In 2018, what was the CoC_Name of the top 3 locations in terms of number of Sheltered_SH?</p>
             
-            SELECT
-              COUNT(CoC_Name) AS number_of_Shelters
-            FROM
-              sheltered_homeless_2018
+            <p>Answer: 
+            Philadelphia CoC ||
+            Reno, Sparks/Washoe County CoC ||
+            Indianapolis CoC</p>
             
-            
-            In 2018, what was the CoC_Name of the top 3 locations in terms of number of Sheltered_SH?
-            
-            Answer:
-            Philadelphia CoC	
-            Reno, Sparks/Washoe County CoC
-            Indianapolis CoC
-            
-            SQL Code Used:
-            WITH sheltered_homeless_2018 AS (
-              SELECT
+            <p>SQL Code Used:</p>
+            <p>WITH sheltered_homeless_2018 AS (</p>
+            <p>SELECT
                 CoC_Name,
-                Sheltered_SH_Homeless
-              FROM `capstone-practice-434814.Exploration_Dataset.homelessness`
-              WHERE
+                Sheltered_SH_Homeless</p>
+            <p>FROM `capstone-practice-434814.Exploration_Dataset.homelessness`</p>
+            <p>WHERE
                 Sheltered_SH_Homeless >= 1
-                AND Count_Year = 2018
-            )
+                AND Count_Year = 2018</p>
+            <p>)</p>
+            <br>
             
-            
-            ## top 3 locations with sheltered homeless
-            
-            
-            SELECT
-              CoC_Name
-            FROM
-              sheltered_homeless_2018
-            ORDER BY
-              Sheltered_SH_Homeless DESC
-            LIMIT 3
-            </p>
-        <p>4. What are the top 7 states in terms of Overall Homeless population in the year 2018? (Hint: This question will require the use of a GROUP BY clause in your query)
-
-            Answer:	
-            CA: 128877
-            NY: 90884
-            FL: 31030
-            TX: 25310
-            WA: 22304
-            MA: 20068
-            OR: 14476
-            
-            SQL Code Used:
-            WITH overall_homeless_2018 AS (
-              SELECT
-                State,
-                Overall_Homeless
-              FROM
-                `capstone-practice-434814.Exploration_Dataset.homelessness`
-              WHERE
-                Count_Year = 2018
-              GROUP BY
-                State,
-                Overall_Homeless
-              ORDER BY
-                Overall_Homeless DESC
-            )
-            
-            
-            ## count of overall homeless by state
-            SELECT
-              State,
-              SUM(overall_homeless_2018.Overall_Homeless) AS homeless_population
-            FROM
-              overall_homeless_2018
-            GROUP BY
-              State
-            ORDER BY
-              homeless_population DESC
-            LIMIT 7
-            
-            5. Below you will see a table of all of the states and their populations in 2018. If the Overall Homeless population were only correlated with the total state population, then the top 7 states for total population and the top 7 states for Overall Homeless population would be the same. 
-            
-            Is this the case? If not, which states are not lining up the same?
-            This is not the case. While CA and FL do seem to have a correlation, the other 5 states have none. Texas is shown to have the second highest overall population and New York having the 4th highest but Texas only ranks 4th as far as Overall Homeless population and New York ranking 2nd. The next three highest in population don’t appear on the next 3 spots in the Overall Homeless Population; WA, MA and OR have the next highest Overall Homeless population and they rank towards the middle of the population rankings 
-            
-            We would say that homelessness is overrepresented in a state if that state listed higher in the Homeless ranking than it did in total population ranking, and it would be underrepresented if the homeless ranking was lower than the population ranking. With that in mind, which states in the top 7 homelessness list would be overrepresented for homelessness?
-            Washington
-            Maryland
-            Oregon
-            New York
-            
-            
-            6. In order to create better policies to support homeless individuals, we want to study locations that are doing a good job providing shelter. To do so, we need to identify places that have a relatively large number of homeless, but a relatively small number of unsheltered homeless.
-            
-            Generate a list of all locations, in 2018, that have more than 1000 Overall Homeless, but less than 100 unsheltered homeless. 
-            
-            Answer:
-            Delaware Statewide CoC: 8.6%
-            Anchorage CoC: 8.59%
-            Rhode Island Statewide CoC: 4.63%
-            Omaha, Council Bluffs CoC: 4.54%
-            Cleveland/Cuyahoga County CoC: 4.31%
-            Cincinnati/Hamilton County CoC: 4.22%
-            Lynn CoC: 3.96%
-            Maine Statewide CoC: 3.9%
-            Yonkers, Mount Vernon/Westchester County CoC: 2.41%
-            Quincy, Brockton, Weymouth, Plymouth City and County CoC: 2.02%
-            Nassau, Suffolk Counties CoC: 1.34%
-            Springfield/Hampden County CoC: 1.31%
-            
-            SQL Code Used:
-            WITH overall_homeless_2018 AS (
-              SELECT
-                CoC_Name,
-                Overall_Homeless,
-                Unsheltered_Homeless
-              FROM
-                `capstone-practice-434814.Exploration_Dataset.homelessness`
-              WHERE
-                Count_Year = 2018
-                AND Overall_Homeless > 1000
-                AND Unsheltered_Homeless < 100
-              ORDER BY
-                Overall_Homeless DESC
-            )
-            
-            
-            ## locations with low unsheltered population in relation to overall homeless shown in percentage
-            
-            
-            SELECT
-              CoC_Name,
-              ROUND((Unsheltered_Homeless / Overall_Homeless)*100, 2) AS unsheltered_percentage
-            FROM overall_homeless_2018
-            ORDER BY
-              unsheltered_percentage DESC
-            
-            From that same list, in which locations do Unsheltered Homeless account for less than 2% of the Overall Homeless population?
-            
-            Answer:
-            Nassau, Suffolk Counties CoC: 1.34%
-            Springfield/Hampden County CoC: 1.31%
-            
-            </p>
+            <p>## top 3 locations with sheltered homeless</p>
+            <br>
+            <p>SELECT
+              CoC_Name</p>
+            <p>FROM
+              sheltered_homeless_2018</p>
+            <p>ORDER BY
+              Sheltered_SH_Homeless DESC</p>
+            <p>LIMIT 3</p>
+        </section>
     </body>
 </html>
