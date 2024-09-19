@@ -12,106 +12,18 @@
 
     <body class="projects-body">
         <h1><a href="https://console.cloud.google.com/bigquery?ws=!1m4!1m3!3m2!1scapstone-practice-434814!2sExploration_Dataset"> SQL Project</a></h1>
+        <h2>BigQuery Data Exploration</h2>
         <ul>
             <li>Explored BigQuery’s public dataset on homelessness from 2010 - 2018 to draw insights into the trends</li>
             <li>Modified the dataset using SQL to allow for more efficient analysis, including removing columns and creating new columns</li>
             <li>Performed data analysis using SQL queries to identify locations that need support for homeless youth and homeless veterans, in addition to sourcing locations that were effectively supporting their homeless population</li>
         </ul>
-        <h3>Examples of queries used to answer questions</h3>
         <section>
-            <p>We want to develop some new programs to help unaccompanied homeless children under 18 years old, and need some locations to start some programs. What are the top 3 Continuum of Care areas (CoC_Name in the table) with the highest number of unaccompanied homeless youth under 18 in the year 2018.</p>
-
-            <p>Answer:
-            San Jose/Santa Clara City & County CoC - 506
-            Oregon Balance of State CoC - 243
-            Las Vegas/Clark County CoC- 214</p>
-            
-            <p>SQL Code Used:</p>
-            <p>SELECT
-              CoC_Name,
-              Homeless_Unaccompanied_Youth_Under_18</p>
-            <p>FROM `capstone-practice-434814.Exploration_Dataset.homelessness`</p>
-            <p>WHERE
-              Count_Year = 2018</p>
-            <p>ORDER BY
-              Homeless_Unaccompanied_Youth_Under_18 DESC</p>
-            <p>LIMIT 3</p>
+          <a href="/docs/Tasya Henderson - BigQuery Data Exploration Part 1.pdf" target="sql-display">BigQuery Exploration Questions part 1</a>
+          <br>
+          <a href="/docs/Tasya Henderson-BigQuery Data Exploration Part 2.pdf" target="sql-display">BigQuery Exploration Questions part 2</a>
         </section>
-        <br>
-        <section>
-            <p>2. We suspect that in Delaware (state abbreviation is “DE”), the number of unsheltered homeless people has been increasing over the past 7 years. Is this statement true? How do you know?</p>
-
-            <p>Answer:
-            This statement is true due to the fact that when we queried the number of unsheltered homeless people in Delaware, we saw that, outside of 2013, the numbers were steadily increasing over time.</p>
-            
-            <p>SQL Code Used:</p>
-            <p>SELECT
-              Count_Year,
-              Unsheltered_Homeless</p>
-            <p>FROM
-              `capstone-practice-434814.Exploration_Dataset.homelessness`</p>
-            <p>WHERE
-              State = 'DE'</p>
-            <p>ORDER BY
-              Count_Year</p>
-        </section>
-        <br>
-        <section>
-            <p>3. The Safe Haven program was created in 1992 to provide shelter for people who are homeless and have a serious mental illness. However, funding for Safe Havens was cut in 2009, so no new Safe Havens could be created. Looking at data from only 2018, answer the following questions:</p>
-            <p>In 2018, how many different locations had at least 1 person as a Sheltered_SH?</p>
-            
-            <p>Answer: 
-            90</p>
-            
-            <p>SQL Code Used:</p>
-            <p>WITH sheltered_homeless_2018 AS (</p>
-            <p>SELECT
-                CoC_Name,
-                Sheltered_SH_Homeless</p>
-                <p>FROM `capstone-practice-434814.Exploration_Dataset.homelessness`</p>
-                <p>WHERE
-                Sheltered_SH_Homeless >= 1
-                AND Count_Year = 2018</p>
-            <p>)</p>
-            <br>
-            
-            <p>## number of locations with sheltered homeless</p>
-            <br>
-            
-            <p>SELECT
-              COUNT(CoC_Name) AS number_of_Shelters</p>
-            <p>FROM
-              sheltered_homeless_2018</p>
-            <br>
-            
-            <p>In 2018, what was the CoC_Name of the top 3 locations in terms of number of Sheltered_SH?</p>
-            
-            <p>Answer: 
-            Philadelphia CoC ||
-            Reno, Sparks/Washoe County CoC ||
-            Indianapolis CoC</p>
-            
-            <p>SQL Code Used:</p>
-            <p>WITH sheltered_homeless_2018 AS (</p>
-            <p>SELECT
-                CoC_Name,
-                Sheltered_SH_Homeless</p>
-            <p>FROM `capstone-practice-434814.Exploration_Dataset.homelessness`</p>
-            <p>WHERE
-                Sheltered_SH_Homeless >= 1
-                AND Count_Year = 2018</p>
-            <p>)</p>
-            <br>
-            
-            <p>## top 3 locations with sheltered homeless</p>
-            <br>
-            <p>SELECT
-              CoC_Name</p>
-            <p>FROM
-              sheltered_homeless_2018</p>
-            <p>ORDER BY
-              Sheltered_SH_Homeless DESC</p>
-            <p>LIMIT 3</p>
-        </section>
+        
+        <iframe src="" name="sql-display" title="questions display"></iframe>
     </body>
 </html>
