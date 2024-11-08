@@ -11,7 +11,24 @@
     </head>
 
     <body class="projects-body">
-        <h1>Capstone</h1>
-        <p>Coming Soon</p>
+        <h1>Capstone: NFL Performance Analysis 2004-2019</h1>
+        <section>
+            <h2>Summary of Project</h2>
+            <p>The purpose of this analysis is to examine what makes an NFL player and team productive by looking at NFL datasets that span from 2004-2019. The two datasets that used were the NFL Player Data from Kaggle and the nflverse data repository from GitHub.</p>
+        </section>
+        <section>
+            <h2>Tools and Steps</h2>
+            <p>The 5 datasets that were pulled from Kaggle were downloaded into Google Sheets and Excel where they were cleaned and re-formatted. Several columns were removed, missing values were researched and the information was added back into the relevant column, and the column headers were re-labeled so that there was a uniform key across the datasets.</p>
+            <p>Once the individual datasets were cleaned, they were uploaded into BigQuery where I used subqueries and WHERE clauses to join the five tables together to create one table with the players, teams, and their stats. I also created queries to create tables that looked at specific aspects of the data to answer the purpose of the analysis.</p>
+            <p>Once I had a main table and the smaller tables from the other queries, I brought them back into Excel to create a data source for creating my Tableau visualizations. I decided to create 4 visualizations: a bar graph that looked at the top 10 players based on total yards, a heatmap that listed yards a players gained in a specific season, a bar graph that looked at all 32 teams and how many run plays they did versus pass plays, and a plot with a trendline that looked at the different types of plays a team tended to over the years.</p>
+            <p>After creating the visualizations, I brought in the combined dataset to do an analysis by using R programming.</p>
+        </section>
+        <section>
+            <h2>Findings</h2>
+        </section>
+        <section>
+            <h2>Further Questions</h2>
+        </section>
+
     </body>
 </html>
