@@ -14,13 +14,13 @@
         <h1>Capstone: NFL Performance Analysis 2004-2019</h1>
         <section>
             <h2>Summary of Project</h2>
-            <p>The purpose of this analysis is to examine what makes an NFL player and team productive by looking at NFL datasets that span from 2004-2019. The two datasets that used were the NFL Player Data from Kaggle and the nflverse data repository from GitHub.</p>
+            <p>The purpose of this analysis is to examine what makes an NFL player and team productive by looking at NFL datasets that span from 2004-2019. The two datasets that used were the <a href="https://www.kaggle.com/datasets/toddsteussie/nfl-play-statistics-dataset-2004-to-present">NFL Player Data</a> from Kaggle and the <a href="https://github.com/nflverse/nflverse-data"> nflverse data repository</a> from GitHub.</p>
         </section>
         <section>
             <h2>Tools and Steps</h2>
-            <p>The 5 datasets that were pulled from Kaggle were downloaded into Google Sheets and Excel where they were cleaned and re-formatted. Several columns were removed, missing values were researched and the information was added back into the relevant column, and the column headers were re-labeled so that there was a uniform key across the datasets.</p>
-            <p>Once the individual datasets were cleaned, they were uploaded into BigQuery where I used subqueries and WHERE clauses to join the five tables together to create one table with the players, teams, and their stats. I also created queries to create tables that looked at specific aspects of the data to answer the purpose of the analysis.</p>
-            <p>Once I had a main table and the smaller tables from the other queries, I brought them back into Excel to create a data source for creating my Tableau visualizations. I decided to create 4 visualizations: a bar graph that looked at the top 10 players based on total yards, a heatmap that listed yards a players gained in a specific season, a bar graph that looked at all 32 teams and how many run plays they did versus pass plays, and a plot with a trendline that looked at the different types of plays a team tended to over the years.</p>
+            <p>The 5 datasets that were pulled from Kaggle were downloaded into Google Sheets and Excel where they were cleaned and re-formatted.</p>
+            <p>Once the individual datasets were cleaned, they were uploaded into BigQuery to join the five tables together to create one table with the players, teams, and their stats. I also created secondary queries to create tables that looked at specific aspects of the data to answer the purpose of the analysis.</p>
+            <p>Once I had created all the tables I needed, they were brought them into Excel to create a data source for my Tableau visualizations. I decided to create 4 visualizations: a bar graph and a heatmap that looked at player performance based on 'air' and 'ground' yards; and a bar graph and a combo plot grpah with trend line that looked at team performance based on plays and yards.</p>
             <p>After creating the visualizations, I brought in the combined dataset to do an analysis by using R programming.</p>
         </section>
         <section>
