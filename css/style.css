@@ -118,6 +118,13 @@ footer a, footer p {
     background-color: #e9e6f0;
 }
 
+/*-----Tableau style ------------*/
+.tableauPlaceholder {
+    position: relative;
+}
+.tableauViz {
+    display:none;
+}
 
 
 @media (max-width:1150px){
