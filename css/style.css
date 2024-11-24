@@ -86,7 +86,7 @@ footer{
     background-color: rgb(226, 189, 95);
     border: beige 2px outset;
 }
-footer a, footer p {
+footer a, footer p, footer div {
     display: flex;
     justify-content: center;
 }
